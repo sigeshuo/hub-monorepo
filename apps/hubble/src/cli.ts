@@ -243,7 +243,7 @@ app
     // detects it as slightly under that depending on OS, so we'll only error if
     // it's less than 15GB.
     const totalMemory = Math.floor(os.totalmem() / 1024 / 1024 / 1024);
-    const memReservation = parseInt(process.env["MEM_RESERVATION"]) ?? 15;
+    const memReservation = parseInt(process.env["MEM_RESERVATION"] ?? "15");
     if (totalMemory < memReservation) {
       startupCheck.printStartupCheckStatus(
         StartupCheckStatus.ERROR,
