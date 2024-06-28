@@ -21,6 +21,8 @@ jobs:
           password: ${{ secrets.FARCASTERXYZ_DOCKER_HUB_TOKEN }}
 
       - uses: depot/setup-action@v1
+        with:
+          oidc: false
 
       - run: ./scripts/publish-image.sh
         shell: bash
