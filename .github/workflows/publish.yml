@@ -20,9 +20,7 @@ jobs:
           username: ${{ secrets.FARCASTERXYZ_DOCKER_HUB_USER }}
           password: ${{ secrets.FARCASTERXYZ_DOCKER_HUB_TOKEN }}
 
-      - uses: depot/setup-action@v1
-        with:
-          oidc: false
+      #- uses: depot/setup-action@v1
 
       - run: ./scripts/publish-image.sh
         shell: bash
