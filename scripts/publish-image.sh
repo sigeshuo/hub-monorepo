@@ -12,7 +12,10 @@ HUBBLE_VERSION=$(node -e "console.log(require('./apps/hubble/package.json').vers
 
 echo "Publishing $HUBBLE_VERSION"
 
-docker build -f Dockerfile.hubble \
+# Enable Buildx
+docker buildx use mybuilder
+
+docker buildx build -f Dockerfile.hubble \
   --platform "linux/amd64,linux/arm64" \
   --push \
   -t farcasterxyz/hubble:${HUBBLE_VERSION} \
