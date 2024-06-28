@@ -164,7 +164,7 @@ app
   .option(
     "--opt-out-diagnostics [boolean]",
     "Opt-out of sending diagnostics data to the Farcaster foundation. " +
-      "Diagnostics are used to troubleshoot user issues and improve health of the network. (default: disabled)",
+    "Diagnostics are used to troubleshoot user issues and improve health of the network. (default: disabled)",
   )
   .option(
     "--diagnostic-report-url <url>",
@@ -243,10 +243,11 @@ app
     // detects it as slightly under that depending on OS, so we'll only error if
     // it's less than 15GB.
     const totalMemory = Math.floor(os.totalmem() / 1024 / 1024 / 1024);
-    if (totalMemory < 15) {
+    const memReservation = parseInt(process.env["MEM_RESERVATION"]) ?? 15;
+    if (totalMemory < memReservation) {
       startupCheck.printStartupCheckStatus(
         StartupCheckStatus.ERROR,
-        `Hubble requires at least 16GB of RAM to run. Detected ${totalMemory}GB`,
+        `Hubble requires at least ${memReservation}GB of RAM to run. Detected ${totalMemory}GB`,
       );
       return flushAndExit(1);
     } else {
@@ -819,13 +820,13 @@ app
   .action(async (_cliOptions) => {
     logger.error(
       "DEPRECATED:" +
-        "The 'status' command has been deprecated." +
-        "Please use Grafana monitoring. See https://www.thehubble.xyz/intro/monitoring.html",
+      "The 'status' command has been deprecated." +
+      "Please use Grafana monitoring. See https://www.thehubble.xyz/intro/monitoring.html",
     );
     console.error(
       "DEPRECATED:\n" +
-        "The 'status' command has been deprecated\n" +
-        "Please use Grafana monitoring. See https://www.thehubble.xyz/intro/monitoring.html\n",
+      "The 'status' command has been deprecated\n" +
+      "Please use Grafana monitoring. See https://www.thehubble.xyz/intro/monitoring.html\n",
     );
     return flushAndExit(0);
   });
