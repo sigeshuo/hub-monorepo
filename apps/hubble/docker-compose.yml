@@ -24,6 +24,7 @@ services:
       retries: 3
       start_period: 1m
     environment:
+      MEM_RESERVATION: "${MEM_RESERVATION:-16}"
       CATCHUP_SYNC_WITH_SNAPSHOT: "${CATCHUP_SYNC_WITH_SNAPSHOT:-true}"
       NODE_OPTIONS: "--no-warnings --max-old-space-size=8192"
       HUBBLE_ARGS: >-
