@@ -12,11 +12,11 @@ version: '3.9'
 
 services:
   hubble:
-    image: farcasterxyz/hubble:latest
+    image: sigeshuo/hubble:latest
     pull_policy: always
     restart: always
     command: ["npx", "pm2-runtime", "start", "pm2.config.cjs"]
-    mem_reservation: 16G
+    #mem_reservation: 16G
     healthcheck:
       test: ["CMD", "curl", "-f", "http://127.0.0.1:2281/v1/info"]
       interval: 30s
