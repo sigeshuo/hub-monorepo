@@ -17,6 +17,6 @@ docker buildx create --use
 
 docker buildx build -f Dockerfile.hubble \
   --platform "linux/amd64,linux/arm64" \
-  -t sigeshuo/hubble:${HUBBLE_VERSION} \
-  -t sigeshuo/hubble:latest \
+  -t sigeshuo/farcaster:${HUBBLE_VERSION} \
+  -t sigeshuo/farcaster:latest \
   .
