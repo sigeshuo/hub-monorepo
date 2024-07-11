@@ -61,7 +61,7 @@ RUN rm -rf node_modules && yarn install --production --ignore-scripts --prefer-o
 ########## Stage 3: Copy over the built code to a leaner alpine image #########
 ###############################################################################
 
-FROM node:21.6-slim as app
+FROM node:21.6-slim AS app
 
 RUN apt-get update && apt-get install -y curl procps
 
