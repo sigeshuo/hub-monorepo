@@ -10,7 +10,7 @@
 
 services:
   hubble:
-    image: sigeshuo/hubble:latest
+    image: sigeshuo/farcaster:latest
     pull_policy: always
     restart: always
     command: ["npx", "pm2-runtime", "start", "pm2.config.cjs"]
