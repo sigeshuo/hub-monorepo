@@ -1,5 +1,29 @@
 # @farcaster/hub-shuttle
 
+## 0.5.1
+
+### Patch Changes
+
+- Fix reset of limit for total batch bytes
+
+## 0.5.0
+
+### Minor Changes
+
+- Support customization of event batch size and time between flushes
+
+## 0.4.4
+
+### Patch Changes
+
+- 864261b7: feat(shuttle) Allow Redis client to be a cluster instance
+
+## 0.4.3
+
+### Patch Changes
+
+- 45180584: Gracefully handle "no such key" when querying group on first start
+
 ## 0.4.2
 
 ### Patch Changes
