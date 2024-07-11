@@ -19,7 +19,7 @@ BUILDER_NAME="hubble-builder"
 if ! docker buildx inspect $BUILDER_NAME >/dev/null 2>&1; then
   echo "Builder '$BUILDER_NAME' 不存在，创建新的 builder..."
   # Enable Buildx
-  docker buildx create --name hubble-builder --use
+  docker buildx create --name $BUILDER_NAME --use
 else
   echo "Builder '$BUILDER_NAME' 已存在，使用现有的 builder..."
   docker buildx use $BUILDER_NAME
